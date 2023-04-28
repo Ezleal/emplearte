@@ -2,6 +2,7 @@
 	
 	require_once "config/config.php";
 	require_once "routes.php";
+	require_once "config/db.php";
 	require_once "Controllers/EmpleadosController.php";
 	require_once "Controllers/NosotrosController.php";
 	require_once "Controllers/ErrorController.php";
