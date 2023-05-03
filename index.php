@@ -5,6 +5,7 @@
 	require_once "config/db.php";
 	require_once "Controllers/EmpleadosController.php";
 	require_once "Controllers/NosotrosController.php";
+	require_once "Controllers/UsuariosController.php";
 	require_once "Controllers/ErrorController.php";
 
 	if(isset($_GET['c'])){

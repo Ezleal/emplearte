@@ -32,7 +32,6 @@
 
         public function selectProvincias()
         {
-
             $select = [];
             $query = "SELECT * FROM provincia";
             $result = $this->db->query($query);

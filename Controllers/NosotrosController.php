@@ -13,6 +13,5 @@
 			require_once "Views/informacion.php";	
 		}
 
-
 	}
 ?>

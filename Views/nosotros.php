@@ -1,7 +1,7 @@
 <?php include_once("./Views/includes/header.php") ?> 
- <?php include_once("./Views/includes/navigation.php") ?> 
+<?php include_once("./Views/includes/navigation.php") ?> 
 
-<div class="container p-4">
+ <div class="container p-4">
     <div class="row">
         <div class="col-md-12 mb-4">
             <h2 class="text-center">Sobre nosotros</h2>
@@ -12,7 +12,7 @@
             <p class="text-justify">Con EmpleARTE, los empleadores pueden publicar ofertas de trabajo y filtrar a los candidatos según sus habilidades, experiencia y otros criterios relevantes. Los posibles empleados, por otro lado, pueden crear su perfil y postularse a las ofertas que mejor se ajusten a su perfil.</p>
             <p class="text-justify">Nuestro equipo está compuesto por profesionales apasionados por el desarrollo de soluciones tecnológicas innovadoras que mejoren la vida de las personas. Nos esforzamos por mantener la calidad y la seguridad de nuestro servicio para brindar la mejor experiencia a nuestros usuarios.</p>
         </div>
-
+        
         <div class="col-md-6">
             <img src="https://via.placeholder.com/600x400" class="img-fluid rounded shadow" alt="Imagen de la aplicación EmpleARTE">
         </div>
