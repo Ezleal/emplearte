@@ -17,7 +17,7 @@
             <h5 class="card-title">Iniciar Sesión</h5>
                 <form action="index.php?c=usuarios&a=login" method="post" >
                     <div class="form-group">
-                        <input type="email" value="" name="email" class="form-control" placeholder="Email" autofocus required>
+                        <input type="" value="" name="email" class="form-control" placeholder="Email" autofocus required>
                     </div>
                     <div class="form-group">
                         <input type="password" value="" name="password" class="form-control" placeholder="Contraseña" required>

@@ -3,6 +3,7 @@
 class Usuario {
     private $id;
     private $email;
+    private $username;
     private $password;
     private $nombre;
     private $apellido;
@@ -21,6 +22,14 @@ class Usuario {
 
     public function setId($id) {
         $this->id = $id;
+    }
+
+    public function getUsername() {
+        return $this->username;
+    }
+
+    public function setUsername($username) {
+        $this->username = $username;
     }
 
     public function getEmail() {
@@ -56,7 +65,7 @@ class Usuario {
     }
 
     public function getUsuarioByEmailAndPassword($email, $password) {
-        $stmt = $this->db->prepare('SELECT * FROM usuarios WHERE email = :email AND password = :password');
+        $stmt = $this->db->prepare('SELECT * FROM usuarios WHERE email = :email OR username = :email AND password = :password');
         $stmt->execute(array(':email' => $email, ':password' => $password));
     
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -94,14 +103,14 @@ class Usuario {
         return $usuario;
     }
 
-    public function insertUsuario($email, $password, $nombre, $apellido) {
-        $stmt = $this->db->prepare('INSERT INTO usuarios (email, password, nombre, apellido) VALUES (:email, :password, :nombre, :apellido)');
-        $stmt->execute(array(':email' => $email, ':password' => $password, ':nombre' => $nombre, ':apellido' => $apellido));
+    public function insertUsuario() {
+        $stmt = $this->db->prepare('INSERT INTO usuarios (email, password, nombre, apellido, username) VALUES (:email, :password, :nombre, :apellido, :username)');
+        $stmt->execute(array(':email' => $this->email, ':password' => $this->password, ':nombre' => $this->nombre, ':apellido' => $this->apellido, ':username' => $this->username));
     }
 
-    public function updateUsuario($id, $email, $password, $nombre, $apellido) {
-        $stmt = $this->db->prepare('UPDATE usuarios SET email = :email, password = :password, nombre = :nombre, apellido = :apellido WHERE id = :id');
-        $stmt->execute(array(':id' => $id, ':email' => $email, ':password' => $password, ':nombre' => $nombre, ':apellido' => $apellido));
+    public function updateUsuario($id, $email, $password, $nombre, $apellido, $username) {
+        $stmt = $this->db->prepare('UPDATE usuarios SET email = :email, password = :password, nombre = :nombre, apellido = :apellido, username = :username WHERE id = :id');
+        $stmt->execute(array(':id' => $id, ':email' => $email, ':password' => $password, ':nombre' => $nombre, ':apellido' => $apellido, ':username' => $username));
     }
 
     public function deleteUsuario($id) {

@@ -7,9 +7,9 @@
 
     <div class="collapse navbar-collapse ml-4 mt-3" id="navbarNav">
       <?php if(isset($_COOKIE['usuario'])) {?>
-      <ul class="navbar-nav ml-auto order-lg-2 mb-3">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?c=empleados&a=index">Alta de usuarios</a>
+      <ul class="navbar-nav ml-auto order-lg-2 mb-3 ">
+        <li class="nav-item mr-2">
+          <a class="nav-link" href="index.php?c=empleados&a=index">Alta empleados</a>
           <a class="nav-link sobre-nosotros" href="index.php?c=nosotros&a=index">Sobre nosotros</a>
         </li>
         <li class="nav-item ml-auto mt-4 ml-2">

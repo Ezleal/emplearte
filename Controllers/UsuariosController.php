@@ -74,21 +74,21 @@ class UsuariosController {
 	}
 
 	public function guardarRegistro(){
-		if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
+		if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nombre']) && isset($_POST['apellido']) && isset($_POST['username'])) {
 			$email = $_POST['email'];
 			$password = $_POST['password'];
 			$nombre = $_POST['nombre'];
 			$apellido = $_POST['apellido'];
-
+			$username = $_POST['username'];
 			$usuario = new Usuario();
 			$usuario->setEmail($email);
 			$usuario->setPassword($password);
 			$usuario->setNombre($nombre);
 			$usuario->setApellido($apellido);
-
+			$usuario->setUsername($username);
 			$usuario->insertUsuario();
 
-			header('Location: index.php');
+			header('Location: index.php?c=Usuarios&a=login');
 		} else {
 			echo "Todos los campos son obligatorios";
 		}
