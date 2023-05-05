@@ -60,8 +60,8 @@
                         </select>
                     </div>
                     <div class="form-group float-md-right">
+                        <button type="button" class="btn btn-danger" id="cancelarIndex">Volver</button>                 
                         <button type="submit" class="btn btn-success" name="save">Alta</button>
-                        <button type="button" class="btn btn-danger" id="exit">Salir</button>                 
                     </div>
 
                 </form>
@@ -94,6 +94,9 @@
                         <td><?php echo $empleado['Localidad'].','. $empleado['PROVINCIA']; ?></td>
                         <td><?php echo $empleado['DESC_DOCUMENTO'].': '. $empleado['NroDocumento']; ?></td>
                         <td>
+                        <a href="index.php?c=empleados&a=modificar&IdLegajo=<?php echo $empleado['IdLegajo']?>" class="btn btn-primary">
+                            <i class="far fa-edit"></i>
+                        </a>
                         <a href="index.php?c=empleados&a=delete&IdLegajo=<?php echo $empleado['IdLegajo']?>" class="btn btn-danger">
                             <i class="far fa-trash-alt"></i>
                         </a>

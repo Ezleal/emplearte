@@ -6,6 +6,11 @@ class UsuariosController {
 	
 	public function login()
 	{
+		if (isset($_SESSION['usuario'])) {
+			// Si ya existe una sesión, redirigir a otra página
+			header('Location: index.php?c=nosotros&a=index');
+			exit;
+		}
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Validar formulario
 			if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -17,6 +22,7 @@ class UsuariosController {
 				
 				if ($usuario) {
 				    $_SESSION['usuario'] = $usuario;
+					setcookie('usuario', $usuario, time() + 3600, '/');
 					// Iniciar sesión y redirigir al usuario a la página de inicio
 					header('Location: index.php?c=Nosotros&a=index');
 					exit;
@@ -34,10 +40,11 @@ class UsuariosController {
 
 
 	public function logout(){
+		setcookie("usuario", "", time() - 3600, "/");
 		session_start();
 		session_unset();
 		session_destroy();
-		header('Location: index.php');
+		header('Location: index.php?c=Usuarios&a=login');
 	}
 
 	public function validarLogin($email, $password){

@@ -6,9 +6,16 @@
  
     <script>
     $( "#exit" ).click(function() {
-    $( "#form_alta" ).addClass( "d-none" );
-    $( "#lista" ).removeClass( "col-md-8" ).addClass( "col-md-12" );
+    // $( "#form_alta" ).addClass( "d-none" );
+    // $( "#lista" ).removeClass( "col-md-8" ).addClass( "col-md-12" );   
+    window.location.href = "index.php?c=usuarios&a=logout";
 
+    });
+    $( "#cancelar" ).click(function() {
+    window.location.href = "index.php?c=empleados&a=index";
+    });
+    $( "#cancelarIndex" ).click(function() {
+    window.location.href = "index.php?c=nosotros&a=index";
     });
     </script>
   </body>
