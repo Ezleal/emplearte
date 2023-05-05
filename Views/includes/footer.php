@@ -15,7 +15,7 @@
     window.location.href = "index.php?c=empleados&a=index";
     });
     $( "#cancelarIndex" ).click(function() {
-    window.location.href = "index.php?c=nosotros&a=index";
+    window.location.href = "index.php?c=nosotros&a=informacion";
     });
     </script>
   </body>
