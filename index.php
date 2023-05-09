@@ -9,12 +9,13 @@
 	require_once "Controllers/UsuariosController.php";
 	require_once "Controllers/ErrorController.php";
 
-	if (!isset($_COOKIE['usuario'])) { // Verificar si la variable de sesión no existe
+	if (!isset($_COOKIE['usuario']) || ($_GET['a'] == 'registrar' && $_GET['c'] == 'usuarios')) {
+		$action = $_GET['a'] == 'registrar' && $_GET['c'] == 'usuarios' ? 'registrar' : 'login';
 		$controller = loadController('Usuarios');
-		$action = 'login';
 		$controller->$action();
 		exit;
 	}
+	
 	if(isset($_GET['c'])){
 		
 		$controller = loadController($_GET['c']);
