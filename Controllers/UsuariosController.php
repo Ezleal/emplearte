@@ -114,49 +114,52 @@ class UsuariosController {
 		}
 	}
 
+	// TODO: IMPLEMENTAR EDICION DE USUARIOS
 	public function editar(){
-		if (isset($_SESSION['usuario_id'])) {
-			$id = $_SESSION['usuario_id'];
-			$usuario = Usuario::getUsuarioById($id);
-			require_once "Views/editar.php";
-		} else {
-			echo "Debe estar logueado para acceder a esta sección";
-		}
+		// if (isset($_SESSION['usuario_id'])) {
+		// 	$id = $_SESSION['usuario_id'];
+		// 	$usuario = Usuario::getUsuarioById($id);
+		// 	require_once "Views/editar.php";
+		// } else {
+		// 	echo "Debe estar logueado para acceder a esta sección";
+		// }
 	}
 
+	// TODO: IMPLEMENTAR ACTUALIZACION DE USUARIOS
 	public function actualizar(){
-		if (isset($_SESSION['usuario_id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
-			$id = $_SESSION['usuario_id'];
-			$email = $_POST['email'];
-			$password = $_POST['password'];
-			$nombre = $_POST['nombre'];
-			$apellido = $_POST['apellido'];
+		// if (isset($_SESSION['usuario_id']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['nombre']) && isset($_POST['apellido'])) {
+		// 	$id = $_SESSION['usuario_id'];
+		// 	$email = $_POST['email'];
+		// 	$password = $_POST['password'];
+		// 	$nombre = $_POST['nombre'];
+		// 	$apellido = $_POST['apellido'];
 
-			$usuario = new Usuario();
-			$usuario->setId($id);
-			$usuario->setEmail($email);
-			$usuario->setPassword($password);
-			$usuario->setNombre($nombre);
-			$usuario->setApellido($apellido);
+		// 	$usuario = new Usuario();
+		// 	$usuario->setId($id);
+		// 	$usuario->setEmail($email);
+		// 	$usuario->setPassword($password);
+		// 	$usuario->setNombre($nombre);
+		// 	$usuario->setApellido($apellido);
 
-			$usuario->updateUsuario();
+		// 	$usuario->updateUsuario();
 
-			header('Location: index.php');
-		} else {
-			echo "Debe estar logueado y todos los campos son obligatorios";
-		}
+		// 	header('Location: index.php');
+		// } else {
+		// 	echo "Debe estar logueado y todos los campos son obligatorios";
+		// }
 	}
 
+	// TODO: IMPLEMENTAR BORRADO DE USUARIOS
 	public function borrar(){
-		if (isset($_SESSION['usuario_id'])) {
-			$id = $_SESSION['usuario_id'];
-			$usuario = new Usuario();
-			$usuario->setId($id);
-			$usuario->deleteUsuario();
-			header('Location: index.php');
-		} else {
-			echo "Debe estar logueado para acceder a esta sección";
-		}
+		// if (isset($_SESSION['usuario_id'])) {
+		// 	$id = $_SESSION['usuario_id'];
+		// 	$usuario = new Usuario();
+		// 	$usuario->setId($id);
+		// 	$usuario->deleteUsuario();
+		// 	header('Location: index.php');
+		// } else {
+		// 	echo "Debe estar logueado para acceder a esta sección";
+		// }
 	}
 
 }

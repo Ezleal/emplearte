@@ -119,10 +119,11 @@ class Usuario {
         $stmt->execute(array(':id' => $id, ':email' => $email, ':password' => $password, ':nombre' => $nombre, ':apellido' => $apellido, ':username' => $username));
     }
 
+    // TODO: Implementar deleteUsuario
     public function deleteUsuario($id) {
-        $stmt = $this->db->prepare('DELETE FROM usuarios WHERE id = ?');
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
+        // $stmt = $this->db->prepare('DELETE FROM usuarios WHERE id = ?');
+        // $stmt->bind_param('i', $id);
+        // $stmt->execute();
     }
 
 }
