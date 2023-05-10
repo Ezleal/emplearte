@@ -69,12 +69,12 @@
             return $select;   
         }
 		
-		public function insert($idLegajo, $apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia){
+		public function insert($apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia){
             // Prepare and Bind
             $stmt =  $this->db->prepare("INSERT INTO empleados 
-            (IdLegajo, Apellido,Nombre,Direccion,Localidad,ID_TIPO_DOCUMENTO,NroDocumento,CodigoPostal,ID_PROVINCIA) 
-            VALUES (?,?,?,?,?,?,?,?,?)");
-            $stmt->bind_param("sssssssss", $idLegajo, $apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia);
+            (Apellido,Nombre,Direccion,Localidad,ID_TIPO_DOCUMENTO,NroDocumento,CodigoPostal,ID_PROVINCIA) 
+            VALUES (?,?,?,?,?,?,?,?)");
+            $stmt->bind_param("ssssssss",$apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia);
             $result = $stmt->execute();
             if(!$result) {
                 die("Error Query");

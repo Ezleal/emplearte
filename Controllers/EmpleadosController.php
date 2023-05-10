@@ -41,7 +41,7 @@
 		}
 		
 		public function save(){		
-				$idLegajo = $_POST['IdLegajo'];
+				// $idLegajo = $_POST['IdLegajo'];
 				$apellido = $_POST['Apellido'];
 				$nombre = $_POST['Nombre'];
 				$direccion = $_POST['Direccion'];
@@ -52,15 +52,15 @@
 				$IdProvincia = $_POST['ID_PROVINCIA'];
 
 			$empleado = new Empleado();
-			$empleado->insert( $idLegajo, $apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia);
-			header('Location: index.php');
+			$empleado->insert( $apellido, $nombre,$direccion,$localidad,$idNroDocumento,$NroDocumento, $CodPostal, $IdProvincia);
+			header('Location: index.php?c=empleados&a=index');
 		}
 		
 		public function delete(){
 			$idLegajo = $_GET['IdLegajo'];
 			$empleado = new Empleado();
 			$empleado->delete($idLegajo);
-			header('Location: index.php');
+			header('Location: index.php?c=empleados&a=index');
 		}	
 	}
 ?>

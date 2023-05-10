@@ -9,7 +9,7 @@
 	require_once "Controllers/UsuariosController.php";
 	require_once "Controllers/ErrorController.php";
 
-	if (!isset($_COOKIE['usuario']) || ($_GET['a'] == 'registrar' && $_GET['c'] == 'usuarios')) {
+	if (!isset($_COOKIE['usuario']) || ( (isset($_GET['a']) && $_GET['a'] == 'registrar') && (isset($_GET['c']) && $_GET['c'] == 'usuarios'))) {
 		$action = (isset($_GET['a']) && $_GET['a'] == 'registrar') && (isset($_GET['c']) && $_GET['c'] == 'usuarios') ? 'registrar' : 'login';
 		$controller = loadController('Usuarios');
 		$controller->$action();

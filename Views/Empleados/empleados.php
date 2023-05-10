@@ -18,9 +18,7 @@
             <div class="card card-body" id="form_alta">
             <h5 class="card-title">Alta de Empleado</h5>
                 <form action="index.php?c=empleados&a=save" method="post" >
-                    <div class="form-group">
-                        <input type="number" value="" name="IdLegajo" class="form-control" placeholder="Nro. de Legajo" autofocus required>
-                    </div>
+               
                     <div class="form-group">
                         <input type="text" value="" name="Apellido" class="form-control" placeholder="Apellido" required>
                     </div>
