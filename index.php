@@ -10,7 +10,7 @@
 	require_once "Controllers/ErrorController.php";
 
 	if (!isset($_COOKIE['usuario']) || ($_GET['a'] == 'registrar' && $_GET['c'] == 'usuarios')) {
-		$action = $_GET['a'] == 'registrar' && $_GET['c'] == 'usuarios' ? 'registrar' : 'login';
+		$action = (isset($_GET['a']) && $_GET['a'] == 'registrar') && (isset($_GET['c']) && $_GET['c'] == 'usuarios') ? 'registrar' : 'login';
 		$controller = loadController('Usuarios');
 		$controller->$action();
 		exit;

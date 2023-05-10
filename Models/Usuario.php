@@ -40,12 +40,12 @@ class Usuario {
         $this->email = $email;
     }
 
-    public function getPassword() {
-        return $this->password;
+    public function getPassword($password) {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function setPassword($password) {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function getNombre() {
@@ -65,24 +65,28 @@ class Usuario {
     }
 
     public function getUsuarioByEmailAndPassword($email, $password) {
-        $stmt = $this->db->prepare('SELECT * FROM usuarios WHERE email = :email OR username = :email AND password = :password');
-        $stmt->execute(array(':email' => $email, ':password' => $password));
-    
+        $stmt = $this->db->prepare('SELECT * FROM usuarios WHERE email = :email OR username = :email');
+        $stmt->execute(array(':email' => $email));
+        
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+        
         if (!$result) {
             return null;
         }
+        
+        if (password_verify($password, $result['password'])) {
+            $usuario = new Usuario();
+            $usuario->setId($result['id']);
+            $usuario->setEmail($result['email']);
+            $usuario->setNombre($result['nombre']);
+            $usuario->setApellido($result['apellido']);
     
-        $usuario = new Usuario();
-        $usuario->setId($result['id']);
-        $usuario->setEmail($result['email']);
-        $usuario->setNombre($result['nombre']);
-        $usuario->setApellido($result['apellido']);
-    
-        return $usuario;
+            return $usuario;
+        } else {
+            return null;
+        }
     }
-
+    
 
     public function getUsuarioById($id) {
         $stmt = $this->db->prepare('SELECT * FROM usuarios WHERE id = :id');
@@ -104,7 +108,9 @@ class Usuario {
     }
 
     public function insertUsuario() {
+        
         $stmt = $this->db->prepare('INSERT INTO usuarios (email, password, nombre, apellido, username) VALUES (:email, :password, :nombre, :apellido, :username)');
+        
         $stmt->execute(array(':email' => $this->email, ':password' => $this->password, ':nombre' => $this->nombre, ':apellido' => $this->apellido, ':username' => $this->username));
     }
 

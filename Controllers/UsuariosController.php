@@ -70,6 +70,23 @@ class UsuariosController {
 	}
 
 	public function registrar(){
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+				$usuario = $this->guardarRegistro();
+			
+				if ($usuario) {
+					$_SESSION['message'] = 'Registro Exitoso';
+					$_SESSION['style'] = 'success';
+					// Iniciar sesión y redirigir al usuario a la página de inicio
+					header('Location: index.php');
+					exit;
+				} else {
+					// Establecer mensaje de error y mostrarlo en la vista
+					$_SESSION['message'] = 'Email o contraseña incorrectos';
+					$_SESSION['style'] = 'danger';
+				}
+			
+		}
 		require_once "Views/registrar.php";
 	}
 
@@ -86,11 +103,14 @@ class UsuariosController {
 			$usuario->setNombre($nombre);
 			$usuario->setApellido($apellido);
 			$usuario->setUsername($username);
-			$usuario->insertUsuario();
 
-			header('Location: index.php?c=Usuarios&a=login');
+			$usuario->insertUsuario();
+			return true;
+
+			// header('Location: index.php?c=Usuarios&a=login');
 		} else {
-			echo "Todos los campos son obligatorios";
+			// Establecer mensaje de error y mostrarlo en la vista
+			return false;
 		}
 	}
 
