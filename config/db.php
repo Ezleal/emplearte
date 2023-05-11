@@ -9,9 +9,9 @@
 
 		public static function connectionPDO(){
 			$host = 'localhost';
-			$dbname = 'test';
-			$user = 'root';
-			$password = 'root';
+			$dbname = 'test'; //  id20585116_test
+			$user = 'root';  // id20585116_root
+			$password = 'root'; // Admin12345678!
 			$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 	
 			try {

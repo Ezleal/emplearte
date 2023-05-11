@@ -35,8 +35,8 @@ Sigue estos pasos para configurar y ejecutar la página web Emplearte en tu ento
 
 1. Clona este repositorio en tu directorio de proyectos web.
 2. Crea una base de datos MySQL para la aplicación Emplearte.
-3. Importa el archivo SQL `emplearte.sql` en tu base de datos para crear la estructura y tablas necesarias.
-4. Configura la conexión a la base de datos en el archivo `config.php` ubicado en la raíz del proyecto. Asegúrate de proporcionar los detalles correctos de tu base de datos (host, nombre de usuario, contraseña y nombre de la base de datos).
+3. Importa el archivo SQL `almeira_ezequiel.sql` en tu base de datos para crear la estructura y tablas necesarias.
+4. Configura la conexión a la base de datos en el archivo `db.php` ubicado en carpeta config del proyecto. Asegúrate de proporcionar los detalles correctos de tu base de datos (host, nombre de usuario, contraseña y nombre de la base de datos).
 5. Configura el servidor web para que apunte al directorio raíz del proyecto.
 6. Abre un navegador web y accede a la URL correspondiente a tu servidor local.
 
